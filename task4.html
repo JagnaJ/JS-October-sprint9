@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkbox Handling</title>
+  <!-- Підключення бібліотеки jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <h2>Checkbox Handling</h2>
+  <form>
+    <input type="checkbox" id="checkbox1" class="checkbox">
+    <label for="checkbox1">Checkbox 1</label><br>
+    <input type="checkbox" id="checkbox2" class="checkbox">
+    <label for="checkbox2">Checkbox 2</label><br>
+    <input type="checkbox" id="checkbox3" class="checkbox">
+    <label for="checkbox3">Checkbox 3</label><br>
+    <input type="checkbox" id="checkbox4" class="checkbox">
+    <label for="checkbox4">Checkbox 4</label><br>
+    <input type="checkbox" id="checkbox5" class="checkbox">
+    <label for="checkbox5">Checkbox 5</label><br>
+    <input type="checkbox" id="checkbox6" class="checkbox">
+    <label for="checkbox6">Checkbox 6</label><br>
+  </form>
+
+  
+  <script>
+    $(document).ready(function() {
+      let checkedCount = 0;
+
+      $('.checkbox').change(function() {
+        if (this.checked) {
+          checkedCount++; 
+          if (checkedCount === 3) {
+            $('.checkbox:not(:checked)').attr('disabled', true);
+          }
+        } else {
+          checkedCount--; 
+          if (checkedCount !== 3) {
+            $('.checkbox').attr('disabled', false);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
